@@ -5,7 +5,6 @@ import {
   DialogTitle,
   DialogClose
 } from "@/components/ui/dialog"
-import { X } from "lucide-react"
 
 interface PhotoModalProps {
   showModal: boolean
