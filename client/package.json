@@ -17,13 +17,11 @@
     "clsx": "^2.1.1",
     "lucide-react": "^0.507.0",
     "react": "^19.1.0",
-    "react-bootstrap": "^2.10.9",
     "react-dom": "^19.1.0",
     "tailwind-merge": "^3.2.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
-    "@types/bootstrap": "^5.2.10",
     "@types/node": "^22.15.13",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
