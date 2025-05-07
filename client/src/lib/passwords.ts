@@ -1,4 +1,8 @@
-import barcelonaPhoto from "../assets/barcelona.jpg"
+// import barcelonaPhoto from "../assets/barcelona.jpg"
+// import photo-wall from "../assets/barcelona.jpg"
+// import barcelonaPhoto from "../assets/barcelona.jpg"
+// import barcelonaPhoto from "../assets/barcelona.jpg"
+// import barcelonaPhoto from "../assets/barcelona.jpg"
 
 export interface Password{
   password: string,
@@ -7,11 +11,43 @@ export interface Password{
 
 export const passwords: Password[] = [
   {
-    password: "piotr_ma_male_jajca",
-    photoURL: "potezny/szymon.png",
+    password: "S",
+    photoURL: "Sakwa.png",
   },
   {
-    password: "123",
-    photoURL: barcelonaPhoto,
+    password: "VI",
+    photoURL: "zakrzowek.png",
+  },
+  {
+    password: "B",
+    photoURL: "brxnx.png",
+  },
+  {
+    password: "L",
+    photoURL: "Harris.png",
+  },
+  {
+    password: "6",
+    photoURL: "photo_wall.png",
+  },
+  {
+    password: "C",
+    photoURL: "Rapid",
+  },
+  {
+    password: "K",
+    photoURL: "pociag.png",
+  },
+  {
+    password: "Z",
+    photoURL: "kino.png",
+  },
+  {
+    password: "AGH",
+    photoURL: "agh.png",
+  },
+  {
+    password: "XD",
+    photoURL: "wawel.png",
   }
 ]

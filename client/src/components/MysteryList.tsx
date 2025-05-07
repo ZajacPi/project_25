@@ -5,7 +5,7 @@ export const MysteryList = () => {
   return (
     <div className="flex flex-col items-center p-4 space-y-4 bg-background">
       <h1 className="text-2xl font-semibold">Password Input with Hints</h1>
-      <div className="flex-col flex gap-3 items-center justify-center">
+      <div className="flex flex-row gap-3 items-center justify-center">
         {passwords.map((password, i) => (
           <CipherComponent
             key={i}
