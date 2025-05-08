@@ -1,7 +1,16 @@
 import { passwords } from "@/lib/passwords"
 import { CipherComponent } from "./CipherComponent"
+import { useState } from "react"
 
 export const MysteryList = () => {
+  const [visibleIndices, setVisibleIndices] = useState<Set<number>>(new Set([0]));
+
+  const enableVisibility = (index: number) => {
+    if (!visibleIndices.has(index) && index < passwords.length) {
+      setVisibleIndices(prev => new Set(prev).add(index));
+    }
+  };
+
   return (
     <div className="flex flex-col items-center p-4 space-y-4 bg-background">
       <h1 className="text-2xl font-semibold">Password Input with Hints</h1>
@@ -11,10 +20,11 @@ export const MysteryList = () => {
             key={i}
             password={password.password}
             photoURL={password.photoURL}
-            // className="relative flex items-center justify-center w-32 h-32 border border-gray-300 rounded-lg shadow-md"
+            isEnabled={visibleIndices.has(i)}
+            enableButton={() => enableVisibility(i + 1)}
           />
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
