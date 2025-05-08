@@ -19,22 +19,27 @@ export const CipherComponent = ({ password, photoURL, className }: CipherCompone
     setIsCorrect(inputValue === password);
   }, [inputValue, password]);
 
-  const closeModal = () =>{
+  const closeModal = () => {
     setShowModal(false);
-  }
+  };
+
   return (
     <>
-    <div className={cn(["flex gap-3", className])}>
-      <Input
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-        className={cn(isCorrect && "ring-2 ring-green-500")}
-      />
-      <Button variant="outline" disabled={!isCorrect} onClick={() => setShowModal(!showModal)}>
-        <Eye className="h-4 w-4" />
-      </Button>
-    </div>
-    <PhotoModal photoURL={photoURL} showModal={showModal} closeModal={closeModal}/>
+      <div className={cn(["flex flex-col gap-3 items-center", className])}>
+        <Input
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          className={cn(isCorrect && "ring-2 ring-green-500", "text-center w-16 h-16")}
+        />
+        <Button
+          variant="outline"
+          disabled={!isCorrect}
+          onClick={() => setShowModal(!showModal)}
+        >
+          <Eye className="h-4 w-4" />
+        </Button>
+      </div>
+      <PhotoModal photoURL={photoURL} showModal={showModal} closeModal={closeModal} />
     </>
   );
 };
