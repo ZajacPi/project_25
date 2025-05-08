@@ -18,6 +18,9 @@ interface CipherComponentProps {
   enableButton: () => void;
   isEnabled: boolean;
   index: number;
+  animate?: boolean;
+  translateSizePx?: number;
+  rotate?: boolean;
   /** focusInput(startIndex, direction) z rodzica */
   focusInput: (i: number, dir: 1 | -1) => void;
 }
@@ -31,7 +34,10 @@ export const CipherComponent = forwardRef<HTMLInputElement, CipherComponentProps
       enableButton,
       isEnabled,
       index,
+      animate,
       focusInput,
+      rotate,
+      translateSizePx
     },
     ref,
   ) => {
@@ -76,6 +82,8 @@ export const CipherComponent = forwardRef<HTMLInputElement, CipherComponentProps
       }
     };
 
+    const translateProperty = `translateX(${translateSizePx}px)`;
+    
     return (
       <>
         <div className={cn("flex flex-col gap-3 items-center", className)}>
@@ -90,8 +98,10 @@ export const CipherComponent = forwardRef<HTMLInputElement, CipherComponentProps
             className={cn(
               isCorrect && "ring-2 ring-green-500",
               isLocked && "pointer-events-none opacity-80",
-              "text-center w-16 h-16",
+              "text-center w-16 h-16 transition-transform duration-[5000ms] ease-in-out",
+              rotate && "rotate-180"
             )}
+            style={{ transform: animate ? translateProperty : "translateX(0px)" }}
             autoComplete="one-time-code"
           />
 
@@ -113,5 +123,3 @@ export const CipherComponent = forwardRef<HTMLInputElement, CipherComponentProps
     );
   },
 );
-
-// CipherComponent.displayName = "CipherComponent";
