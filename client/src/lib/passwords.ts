@@ -1,9 +1,3 @@
-// import barcelonaPhoto from "../assets/barcelona.jpg"
-// import photo-wall from "../assets/barcelona.jpg"
-// import barcelonaPhoto from "../assets/barcelona.jpg"
-// import barcelonaPhoto from "../assets/barcelona.jpg"
-// import barcelonaPhoto from "../assets/barcelona.jpg"
-
 export interface Password{
   password: string,
   photoURL: string,
