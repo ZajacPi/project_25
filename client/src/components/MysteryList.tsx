@@ -10,6 +10,7 @@ export const MysteryList = () => {
   // const [rotate, setRotate] = useState<boolean>(false);
   const [animate, setAnimate] = useState<boolean>(false);
   const inputRefs = useRef<Array<HTMLInputElement | null>>([]);
+  const [finalCorrect, setFinalCorrect] = useState(false);
 
   const focusInput = (start: number, dir: 1 | -1) => {
     let i = start;
@@ -53,12 +54,18 @@ export const MysteryList = () => {
             animate={animate}
             translateSizePx={(id! - i) * cellSize}
             rotate={password === "3" && animate}
+
+            onValidate={(isCorrect) => {
+            if (i === passwords.length - 1) {
+              setFinalCorrect(isCorrect);
+            }
+          }}
           />
         ))}
       </div>
-      <Button onClick={() => setAnimate(true)}>
-        Animate
-      </Button>
+      <Button onClick={() => setAnimate(true)} disabled={!finalCorrect}>
+    Unlock
+  </Button>
     </div>
   );
 };

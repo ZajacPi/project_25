@@ -23,6 +23,8 @@ interface CipherComponentProps {
   rotate?: boolean;
   /** focusInput(startIndex, direction) z rodzica */
   focusInput: (i: number, dir: 1 | -1) => void;
+  onValidate: (isCorrect: boolean) => void; // 👈 Add this line
+
 }
 
 export const CipherComponent = forwardRef<HTMLInputElement, CipherComponentProps>(
@@ -37,7 +39,8 @@ export const CipherComponent = forwardRef<HTMLInputElement, CipherComponentProps
       animate,
       focusInput,
       rotate,
-      translateSizePx
+      translateSizePx,
+      onValidate // <-- add this line
     },
     ref,
   ) => {
@@ -52,6 +55,8 @@ export const CipherComponent = forwardRef<HTMLInputElement, CipherComponentProps
     useEffect(() => {
       const correct = value.toLowerCase() === password.toLowerCase();
       setIsCorrect(correct);
+      onValidate(correct); // 👈 Notify parent about validation
+
 
       if (correct && !isLocked) {
         setIsLocked(true);
