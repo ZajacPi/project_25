@@ -10,6 +10,7 @@ export const MysteryList = () => {
   // const [rotate, setRotate] = useState<boolean>(false);
   const [animate, setAnimate] = useState<boolean>(false);
   const inputRefs = useRef<Array<HTMLInputElement | null>>([]);
+  const [finalCorrect, setFinalCorrect] = useState(false);
 
   const focusInput = (start: number, dir: 1 | -1) => {
     let i = start;
@@ -34,8 +35,8 @@ export const MysteryList = () => {
   const cellSize = 64 + 12; // 64px ma input, 12px jest gap miedzy nimi
 
   return (
-    <div className="flex flex-col items-center p-4 space-y-4 bg-background">
-      <h1 className="text-2xl font-semibold">Password Input with Hints</h1>
+    <div className="flex flex-col items-center p-4 space-y-4  bg-black text-white">
+      <h1 className="text-2xl font-semibold">Password:</h1>
 
       <div className="flex flex-row gap-3 items-center justify-center">
         {passwords.map(({ password, photoURL, id }, i) => (
@@ -53,12 +54,18 @@ export const MysteryList = () => {
             animate={animate}
             translateSizePx={(id! - i) * cellSize}
             rotate={password === "3" && animate}
+
+            onValidate={(isCorrect) => {
+            if (i === passwords.length - 1) {
+              setFinalCorrect(isCorrect);
+            }
+          }}
           />
         ))}
       </div>
-      <Button onClick={() => setAnimate(true)}>
-        Animate
-      </Button>
+      <Button onClick={() => setAnimate(true)} disabled={!finalCorrect}>
+    Unlock
+  </Button>
     </div>
   );
 };

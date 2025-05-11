@@ -23,6 +23,8 @@ interface CipherComponentProps {
   rotate?: boolean;
   /** focusInput(startIndex, direction) z rodzica */
   focusInput: (i: number, dir: 1 | -1) => void;
+  onValidate: (isCorrect: boolean) => void; // 👈 Add this line
+
 }
 
 export const CipherComponent = forwardRef<HTMLInputElement, CipherComponentProps>(
@@ -37,7 +39,8 @@ export const CipherComponent = forwardRef<HTMLInputElement, CipherComponentProps
       animate,
       focusInput,
       rotate,
-      translateSizePx
+      translateSizePx,
+      onValidate // <-- add this line
     },
     ref,
   ) => {
@@ -52,6 +55,8 @@ export const CipherComponent = forwardRef<HTMLInputElement, CipherComponentProps
     useEffect(() => {
       const correct = value.toLowerCase() === password.toLowerCase();
       setIsCorrect(correct);
+      onValidate(correct); // 👈 Notify parent about validation
+
 
       if (correct && !isLocked) {
         setIsLocked(true);
@@ -96,22 +101,27 @@ export const CipherComponent = forwardRef<HTMLInputElement, CipherComponentProps
             disabled={isLocked}
             readOnly={isLocked}
             className={cn(
-              isCorrect && "ring-2 ring-green-500",
-              isLocked && "pointer-events-none opacity-80",
-              "text-center w-16 h-16 transition-transform duration-[5000ms] ease-in-out",
+              isCorrect && "ring-4 ring-amber-400",
+              isLocked && "pointer-events-none",
+              "text-white bg-black text-center w-16 h-16 border border-white",
+              "transition-transform duration-[5000ms] ease-in-out",
               rotate && "rotate-180"
             )}
             style={{ transform: animate ? translateProperty : "translateX(0px)" }}
             autoComplete="one-time-code"
           />
 
-          <Button
-            variant="outline"
-            disabled={!isEnabled}
-            onClick={() => setShowModal(true)}
-          >
-            <Eye className="h-4 w-4" />
-          </Button>
+         <Button
+          variant="outline"
+          disabled={!isEnabled}
+          onClick={() => setShowModal(true)}
+          className={cn(
+            "border",
+            isEnabled ? "bg-yellow-400 text-black border-yellow-400" : "text-gray-500 border-gray-600"
+          )}
+        >
+          <Eye className="h-4 w-4" />
+        </Button>
         </div>
 
         <PhotoModal
