@@ -35,8 +35,8 @@ export const MysteryList = () => {
   const cellSize = 64 + 12; // 64px ma input, 12px jest gap miedzy nimi
 
   return (
-    <div className="flex flex-col items-center p-4 space-y-4 bg-background">
-      <h1 className="text-2xl font-semibold">Password Input with Hints</h1>
+    <div className="flex flex-col items-center p-4 space-y-4  bg-black text-white">
+      <h1 className="text-2xl font-semibold">Password:</h1>
 
       <div className="flex flex-row gap-3 items-center justify-center">
         {passwords.map(({ password, photoURL, id }, i) => (

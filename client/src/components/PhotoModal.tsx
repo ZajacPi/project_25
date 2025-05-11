@@ -2,7 +2,7 @@ import {
   Dialog,
   DialogContent,
   DialogHeader,
-  DialogTitle,
+  // DialogTitle,
   DialogClose
 } from "@/components/ui/dialog"
 
@@ -17,7 +17,7 @@ export const PhotoModal = ({ showModal, closeModal, photoURL }: PhotoModalProps)
     <Dialog open={showModal} onOpenChange={closeModal}>
       <DialogContent className="max-w-4xl p-0">
         <DialogHeader className="flex items-center justify-between p-4 border-b">
-          <DialogTitle>Your Reward</DialogTitle>
+          {/* <DialogTitle>Your Reward</DialogTitle> */}
           <DialogClose asChild>
 
           </DialogClose>

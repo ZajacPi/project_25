@@ -1,3 +1,4 @@
+import barcelona from '../assets/barcelona.jpg'
 export interface Password{
   password: string,
   photoURL: string,
@@ -11,7 +12,8 @@ export const rawPasswords: Password[] = [
   },
   {
     password: "2",
-    photoURL: "zakrzowek.png",
+    // photoURL: "zakrzowek.png",
+    photoURL: barcelona,
   },
   {
     password: "Y",
