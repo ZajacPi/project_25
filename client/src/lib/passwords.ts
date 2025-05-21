@@ -1,4 +1,5 @@
-import barcelona from '../assets/barcelona.jpg'
+import first from '../assets/1.jpg'
+import second from '../assets/2.jpg'
 export interface Password{
   password: string,
   photoURL: string,
@@ -8,12 +9,11 @@ export interface Password{
 export const rawPasswords: Password[] = [
   {
     password: "S",
-    photoURL: "Sakwa.png",
+    photoURL: "nothing.png",
   },
   {
     password: "2",
-    // photoURL: "zakrzowek.png",
-    photoURL: barcelona,
+    photoURL: first,
   },
   {
     password: "Y",
@@ -37,7 +37,7 @@ export const rawPasswords: Password[] = [
   },
   {
     password: "Z",
-    photoURL: "kino.png",
+    photoURL: second,
   },
   {
     password: "3",
