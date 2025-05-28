@@ -1,9 +1,9 @@
 import first from '../assets/1.jpg'
 import second from '../assets/2.jpg'
 import third from '../assets/3.jpg'
-// import fourth from '../assets/4.jpg'
+import fourth from '../assets/4.jpg'
 import fifth from '../assets/5.jpg'
-// import sixth from '../assets/6.jpg'
+import sixth from '../assets/6.jpg'
 import seventh from '../assets/7.jpg'
 // import eight from '../assets/8.jpg'
 // import nine from '../assets/9.jpg'
@@ -33,7 +33,7 @@ export const rawPasswords: Password[] = [
   },
   {
     password: "O",
-    photoURL: "photo_wall.png",
+    photoURL: fourth,
   },
   {
     password: "N",
@@ -41,7 +41,7 @@ export const rawPasswords: Password[] = [
   },
   {
     password: "S",
-    photoURL:  "nothing.png",
+    photoURL:  sixth,
   },
   {
     password: "Z",
