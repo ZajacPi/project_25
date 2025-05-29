@@ -2,7 +2,7 @@
 import './App.css'
 import { MysteryList } from './components/MysteryList'
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [isPortrait, setIsPortrait] = useState(window.innerHeight > window.innerWidth);
