@@ -5,8 +5,8 @@ import fourth from '../assets/4.jpg'
 import fifth from '../assets/5.jpg'
 import sixth from '../assets/6.jpg'
 import seventh from '../assets/7.jpg'
-// import eight from '../assets/8.jpg'
-// import nine from '../assets/9.jpg'
+import eight from '../assets/8.jpg'
+import nine from '../assets/9.jpg'
 import ten from '../assets/10.jpg'
 export interface Password{
   password: string,
@@ -25,7 +25,7 @@ export const rawPasswords: Password[] = [
   },
   {
     password: "Y",
-    photoURL: "brxnx.png",
+    photoURL: eight,
   },
   {
     password: "M",
@@ -49,7 +49,7 @@ export const rawPasswords: Password[] = [
   },
   {
     password: "3",
-    photoURL: "agh.png",
+    photoURL: nine,
   },
   {
     password: "F",
